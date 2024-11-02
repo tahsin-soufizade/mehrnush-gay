@@ -4,28 +4,49 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
-}
+  background: linear-gradient(to left bottom, #0f011d, #300859, #4b0082);
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
 .modal-content {
-  background: white;
+  position: relative;
   padding: 20px 4rem;
   border-radius: 8px;
   text-align: center;
+  width: 60%;
+  font-size: 1.3rem;
 }
 
+@media screen and (min-width: 768px) {
+  .modal-content {
+    width: auto;
+    scale: 1.7;
+  }
+}
+
+.modal-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/mehr-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  z-index: -1;
+  filter: blur(2px);
+}
+@media screen and (min-width: 768px) {
+  .modal-content::after {
+    filter: blur(1px);
+  }
+}
+.modal-content .modal-question {
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}
 .buttons {
   margin-top: 20px;
 }
@@ -35,6 +56,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   margin: 0 10px;
+  border-radius: 3px;
 }
 
 #noBtn {
@@ -55,4 +77,35 @@ button {
 
 #yesBtn:hover {
   background-color: #439d46;
+}
+
+.right-img {
+  position: absolute;
+  right: -7%;
+  bottom: 0;
+  width: 40%;
+  z-index: -2;
+}
+
+@media screen and (max-width: 768px) {
+  .right-img {
+    display: none;
+  }
+}
+
+.left-img {
+  position: absolute;
+  left: 3%;
+  bottom: -10%;
+  width: 20%;
+  z-index: -2;
+}
+@media screen and (max-width: 768px) {
+  .left-img {
+    width: 70%;
+    bottom: 0;
+    left: 16%;
+    height: 100vh;
+    object-fit: cover;
+  }
 }
